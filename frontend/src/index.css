@@ -1,0 +1,153 @@
+/* Modern CSS Reset */
+
+/* ===== BOX SIZING ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ===== REMOVE DEFAULT MARGINS ===== */
+* {
+  margin: 0;
+}
+
+/* ===== HTML & BODY SETUP ===== */
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  height: 100%;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ===== ROOT CONTAINER ===== */
+#root {
+  min-height: 100vh;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* ===== LISTS ===== */
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+:root {
+  /* Colores principales (inferidos del contexto de GameHouse) */
+  --color-primary: #6366f1; /* Índigo moderno */
+  --color-primary-dark: #4f46e5;
+  --color-primary-light: #a5b4fc;
+  
+  --color-secondary: #10b981; /* Verde éxito */
+  --color-secondary-dark: #059669;
+  
+  --color-accent: #f59e0b; /* Amarillo/naranja para destacar */
+  
+  /* Grises y neutros */
+  --color-background: #ffffff;
+  --color-background-alt: #f8fafc;
+  --color-surface: #ffffff;
+  --color-border: #e2e8f0;
+  --color-border-light: #f1f5f9;
+  
+  /* Texto */
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #ffffff;
+  
+  /* Estados */
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+}
+
+/* ===== LINKS ===== */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===== FORM ELEMENTS ===== */
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* Remove default input styles */
+input[type="email"],
+input[type="text"],
+input[type="number"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* ===== MEDIA ===== */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== TABLE ===== */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ===== REMOVE TAP HIGHLIGHT ===== */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ===== FOCUS STYLES ===== */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
