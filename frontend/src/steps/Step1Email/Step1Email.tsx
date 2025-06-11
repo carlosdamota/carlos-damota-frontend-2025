@@ -15,6 +15,8 @@ export const Step1Email: React.FC<Step1EmailProps> = ({ onNext }) => {
   const [offersChecked, setOffersChecked] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
+
+
   const handleBlur = () => {
     if ( !isValidEmail(email)) {
       setError('Please enter a valid email address.');
@@ -60,7 +62,7 @@ export const Step1Email: React.FC<Step1EmailProps> = ({ onNext }) => {
       <article className={styles.article}>
         <BenefitsList />
         
-        <Forms>
+        <Forms onSubmit={handleSubmit}>
           <FormEmailConnect 
             value={email}
             onChange={setEmail}

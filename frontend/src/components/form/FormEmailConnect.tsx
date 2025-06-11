@@ -54,12 +54,13 @@ export const FormEmailConnect: React.FC<FormEmailConnectProps> = ({
         )}
       </div>
 
-      <div  >
+      <div className={formConnect.checkbox_container} >
         <input
           type="checkbox"
           id="offers"
           checked={offersChecked}
           onChange={onToggleOffers}
+          
           
           disabled={isSubmitting}
         />

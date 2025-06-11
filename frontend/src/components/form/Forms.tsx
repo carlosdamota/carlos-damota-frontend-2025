@@ -1,10 +1,15 @@
 import React from 'react'
 import form from './form.module.css'
 
-export const Forms = ({children}: {children: React.ReactNode}) => {
-  return (
-    <form id='connect-form' className={form.form}>
-        {children}
-      </form>
-  )
+interface FormsProps {
+  children: React.ReactNode;
+  onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
 }
+
+export const Forms: React.FC<FormsProps> = ({ children, onSubmit }) => {
+  return (
+    <form id='connect-form' className={form.form} onSubmit={onSubmit}>
+      {children}
+    </form>
+  );
+};

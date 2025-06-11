@@ -22,8 +22,7 @@
 }
 
 .footer{
-    bottom: 1rem;
-    
+    margin: 0.8rem;
     text-align: center;
     && p{
         font-size: 0.8rem;
