@@ -1,24 +1,19 @@
 .section{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 100%;
-    flex: 1;
-    padding: 0 1.5rem;
+     flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 1.5rem; 
+  gap: 2rem;
 }
 
 .header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: center;
 }
 .article {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .footer{

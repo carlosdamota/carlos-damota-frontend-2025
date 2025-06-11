@@ -69,7 +69,7 @@ export const FormEmailConnect: React.FC<FormEmailConnectProps> = ({
         </label>
       </div>
 
-      <button 
+      <button className={formConnect.button}
         type="submit" 
        
         disabled={isSubmitting || !!error || !value.trim()}
