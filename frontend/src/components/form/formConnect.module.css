@@ -1,0 +1,35 @@
+.email_container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: ;
+}
+
+.input {
+  border: none;
+  outline: none;
+  width: 100%;
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--color-border);
+  &::placeholder {
+    font-weight: bold;
+  }
+  &:focus {
+    border-color: var(--color-primary);
+    border-radius: 1rem;
+  }
+}
+
+.error {
+  color: var(--color-error);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.input.error {
+  border-color: var(--color-error);
+}
+
