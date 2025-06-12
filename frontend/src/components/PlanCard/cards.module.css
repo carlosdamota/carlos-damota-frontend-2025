@@ -1,0 +1,123 @@
+.card {
+  position: relative;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: white;
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.card:hover:not(.disabled) {
+  border-color: #a0aec0;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.selected {
+  border-color: #3b82f6;
+  background-color: #f0f7ff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.bestValueTag {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, #f59e0b, #eab308);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.planName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+  text-align: center;
+}
+
+.planPrice {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a202c;
+  text-align: center;
+}
+
+.perUnit {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.billingCycle {
+  font-size: 0.95rem;
+  color: #718096;
+  text-align: center;
+  margin: 0.5rem 0 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 24px;
+  height: 24px;
+  background-color: #3b82f6;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Landscape Optimization */
+@media (orientation: landscape) {
+  .card {
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+/* Tall landscape (mobile) */
+@media (orientation: landscape) and (max-height: 500px) {
+  .card {
+    padding: 1rem;
+    min-height: 150px;
+  }
+  
+  .planName {
+    font-size: 1.1rem;
+  }
+  
+  .planPrice {
+    font-size: 1.5rem;
+  }
+  
+  .billingCycle {
+    font-size: 0.85rem;
+  }
+}

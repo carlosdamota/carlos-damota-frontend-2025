@@ -1,0 +1,268 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 2rem;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 1rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.backButton {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #3182ce;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.backButton:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+.backButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a202c;
+  text-align: center;
+  margin: 0;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.plansContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.trialInfo {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #2d3748;
+  margin-top: 0.5rem;
+}
+
+.errorText {
+  color: #e53e3e;
+  text-align: center;
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+.submitButton {
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(to right, #3b82f6, #6366f1);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(59, 130, 246, 0.3);
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+.submitButton:disabled {
+  background: linear-gradient(to right, #cbd5e1, #94a3b8);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.buttonContent {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer {
+  padding: 1rem;
+  text-align: center;
+  background-color: #f7fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.footerText {
+  font-size: 0.9rem;
+  color: #4a5568;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Portrait Optimization */
+@media (max-width: 480px) and (orientation: portrait) {
+  .section {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .plansContainer {
+    gap: 1rem;
+  }
+  
+  .trialInfo {
+    font-size: 1rem;
+  }
+  
+  .submitButton {
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
+}
+
+/* Landscape Optimization */
+@media (orientation: landscape) {
+  .section {
+    padding: 1.2rem;
+    gap: 1.5rem;
+  }
+  
+  .plansContainer {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.6rem;
+  }
+  
+  .trialInfo {
+    font-size: 1rem;
+  }
+  
+  .submitButton {
+    max-width: 300px;
+  }
+}
+
+/* Tall landscape (mobile) */
+@media (orientation: landscape) and (max-height: 500px) {
+  .section {
+    padding: 0.8rem;
+    gap: 1rem;
+  }
+  
+  .title {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .plansContainer {
+    gap: 1rem;
+  }
+  
+  .footer {
+    padding: 0.6rem;
+  }
+  
+  .footerText {
+    font-size: 0.8rem;
+  }
+  
+  .submitButton {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet landscape */
+@media (min-width: 768px) and (orientation: landscape) {
+  .section {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .plansContainer {
+    max-width: 600px;
+  }
+}
+
+/* Tablet portrait */
+@media (min-width: 768px) and (orientation: portrait) {
+  .section {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+}
