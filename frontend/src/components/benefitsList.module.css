@@ -4,8 +4,8 @@
     flex-direction: column;
     width: 100%;
     width: 100vw;
-    margin-left: calc(-1.5rem); /* Contraresta el padding left del section */
-    margin-right: calc(-1.5rem);
+    margin-left: calc(-1.5rem); 
+    margin-right: calc(-1rem);
     margin-bottom: 2rem;
      
     & li{
@@ -17,9 +17,9 @@
         &:nth-child(1),  &:nth-child(3){
            background: linear-gradient(
   to right,
-  var(--color-primary) 0%,
-  #3C2061 0%,
-  #2D1A47 120%
+  
+  #ffffff1c 30%,
+  #2D1A47 100%
 );
     
         }

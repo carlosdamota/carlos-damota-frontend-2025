@@ -4,6 +4,7 @@ import { FormEmailConnect } from '../../components/form/FormEmailConnect';
 import { Forms } from '../../components/form/Forms';
 import { isValidEmail } from '../../utils/validation';
 import styles from './styles.module.css'
+ import { sendEmailValidationCode } from '../../api/auth';
 
 interface Step1EmailProps {
   onNext: (email: string) => void;
@@ -25,32 +26,25 @@ export const Step1Email: React.FC<Step1EmailProps> = ({ onNext }) => {
     }
   };
 
-  const handleSubmit = async () => {
-    // Validación final
-    if (!isValidEmail(email)) {
-      setError('Please enter a valid email address.');
-      return;
-    }
 
-    setIsSubmitting(true);
-    
-    try {
-      // Llamada a la API de GameHouse
-      const response = await fetch(`/api/send-email-validation-code?email=${encodeURIComponent(email)}`);
-      
-      if (response.ok) {
-        onNext(email); // Avanza al siguiente paso
-      } else {
-        const data = await response.json();
-        setError(data.error || 'Something went wrong. Please try again.');
-      }
-    } catch (error) {
-      setError('Network error. Please check your connection.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
+const handleSubmit = async () => {
+  if (!isValidEmail(email)) {
+    setError('Please enter a valid email address.');
+    return;
+  }
+
+  setIsSubmitting(true);
+
+  try {
+    await sendEmailValidationCode(email);
+    onNext(email); 
+  } catch (error: any) {
+    setError(error.message || 'Unknown error');
+  } finally {
+    setIsSubmitting(false);
+  }
+};
   return (
     <>
     <section className={styles.section} >

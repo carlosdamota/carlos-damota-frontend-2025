@@ -20,18 +20,12 @@ export const FormEmailConnect: React.FC<FormEmailConnectProps> = ({
   onChange,
   onBlur,
   error,
-  onSubmit,
   offersChecked,
   onToggleOffers,
   isSubmitting = false,
 }) => {
   return (
     <
-      
-      // onSubmit={(e) => {
-      //   e.preventDefault();
-      //   onSubmit();
-      // }}
     >
       <div className={formConnect.email_container} >
         <input
