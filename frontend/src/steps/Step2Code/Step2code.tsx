@@ -53,7 +53,6 @@ export const Step2code: React.FC<Step2CodeProps> = ({ onNext, onPrevious, email 
     setError(null);
 
     try {
-      
       const userId = await validateEmailCode(email, code); 
       onNext(userId); 
     } catch (error) {

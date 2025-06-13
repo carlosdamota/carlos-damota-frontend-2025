@@ -3,9 +3,8 @@ import { useState } from 'react'
 import './App.css'
 import { Step1Email } from './steps/Step1Email/Step1Email'
 import { Step2code } from './steps/Step2Code/Step2code'
-// ... imports anteriores ...
 import { Step3Plan } from './steps/step3Plan/Step3Plan';
-// import { Step4Success } from './steps/Step4Success/Step4Success';
+import { Step4Success } from './steps/Step4Success/Step4Success'; 
 
 function App() {
   const [email, setEmail] = useState<string>('');
@@ -16,8 +15,10 @@ function App() {
     setCurrentStep((prev) => prev + 1);
   };
 
-  const goToPrevious = () => {
-    setCurrentStep((prev) => Math.max(1, prev - 1));
+  const resetFlow = () => {
+    setCurrentStep(1);
+    setEmail('');
+    setUserId(null);
   };
 
   return (
@@ -38,7 +39,7 @@ function App() {
             setUserId(userId);
             goToNext();
           }} 
-          onPrevious={goToPrevious} 
+          onPrevious={() => setCurrentStep(1)} 
         />
       )}
       
@@ -50,9 +51,9 @@ function App() {
         />
       )}
       
-      {/* {currentStep === 4 && (
-        <Step4Success onPrevious={goToPrevious} />
-      )} */}
+      {currentStep === 4 && (
+        <Step4Success onComplete={resetFlow} />
+      )}
     </main>
   );
 }

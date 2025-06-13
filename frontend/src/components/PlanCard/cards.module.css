@@ -1,123 +1,179 @@
+/* cards.module.css */
+
 .card {
   position: relative;
-  border: 2px solid #e2e8f0;
+  background: linear-gradient(135deg, rgba(139, 69, 199, 0.3) 0%, rgba(139, 69, 199, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
-  padding: 1.5rem;
+  padding: 20px;
+  margin-bottom: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background-color: white;
-  flex: 1;
-  min-width: 200px;
-  max-width: 300px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
-.card:hover:not(.disabled) {
-  border-color: #a0aec0;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(139, 69, 199, 0.2);
 }
 
-.selected {
-  border-color: #3b82f6;
-  background-color: #f0f7ff;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
+.card.selected {
+  background: linear-gradient(135deg, rgba(139, 69, 199, 0.4) 0%, rgba(139, 69, 199, 0.2) 100%);
+  border: 2px solid #8b45c7;
+  box-shadow: 0 0 0 2px rgba(139, 69, 199, 0.3);
 }
 
-.disabled {
+.card.disabled {
   opacity: 0.6;
   cursor: not-allowed;
+  pointer-events: none;
 }
 
 .bestValueTag {
   position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(to right, #f59e0b, #eab308);
+  top: -1px;
+  right: 16px;
+  background: linear-gradient(135deg, #00d4aa 0%, #00b894 100%);
   color: white;
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 0 0 8px 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(0, 212, 170, 0.3);
 }
 
 .cardContent {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+  position: relative;
 }
 
 .planName {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #2d3748;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
   margin: 0;
-  text-align: center;
+  margin-right: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .planPrice {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1a202c;
-  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0;
+  display: flex;
+  align-items: baseline;
 }
 
 .perUnit {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #4a5568;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  margin-left: 2px;
 }
 
 .billingCycle {
-  font-size: 0.95rem;
-  color: #718096;
-  text-align: center;
-  margin: 0.5rem 0 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  margin: 4px 0 0 0;
+  position: absolute;
+  right: 0;
+  bottom: -20px;
+  font-weight: 400;
 }
 
 .checkmark {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 24px;
   height: 24px;
-  background-color: #3b82f6;
-  color: white;
+  background: #00d4aa;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  font-size: 14px;
   font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0, 212, 170, 0.4);
 }
 
-/* Landscape Optimization */
-@media (orientation: landscape) {
-  .card {
-    min-height: 180px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+.card:not(.selected) .checkmark {
+  display: none;
 }
 
-/* Tall landscape (mobile) */
-@media (orientation: landscape) and (max-height: 500px) {
+.card:not(.selected)::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  background: transparent;
+}
+
+/* Responsive design - tablet and desktop */
+@media (min-width: 768px) {
   .card {
-    padding: 1rem;
-    min-height: 150px;
+    margin-bottom: 20px;
+    padding: 24px;
+    min-height: 140px;
   }
   
   .planName {
-    font-size: 1.1rem;
+    font-size: 22px;
   }
   
   .planPrice {
-    font-size: 1.5rem;
+    font-size: 28px;
+  }
+  
+  .perUnit {
+    font-size: 16px;
   }
   
   .billingCycle {
-    font-size: 0.85rem;
+    font-size: 14px;
+    bottom: -24px;
+  }
+  
+  .bestValueTag {
+    font-size: 12px;
+    padding: 8px 16px;
+    right: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    padding: 28px;
+    min-height: 160px;
+  }
+  
+  .planName {
+    font-size: 24px;
+  }
+  
+  .planPrice {
+    font-size: 32px;
+  }
+  
+  .perUnit {
+    font-size: 18px;
   }
 }
