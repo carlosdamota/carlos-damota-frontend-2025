@@ -7,7 +7,7 @@ import { CodeInput } from '../../components/form/CodeInput';
 import { sendEmailValidationCode, validateEmailCode } from '../../api/auth'; // ajusta la ruta según tu estructura
 
 interface Step2CodeProps {
-  onNext: () => void;
+  onNext: (userId: number) => void;
   onPrevious: () => void;
   email: string;
 }
@@ -53,8 +53,9 @@ export const Step2code: React.FC<Step2CodeProps> = ({ onNext, onPrevious, email 
     setError(null);
 
     try {
-      await validateEmailCode(email, code); 
-      onNext(); 
+      
+      const userId = await validateEmailCode(email, code); 
+      onNext(userId); 
     } catch (error) {
       setError(error instanceof Error ? error.message : 'Network error');
     } finally {

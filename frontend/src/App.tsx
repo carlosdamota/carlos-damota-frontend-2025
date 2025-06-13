@@ -46,7 +46,7 @@ function App() {
         <Step3Plan 
           userId={userId} 
           onNext={goToNext} 
-          onPrevious={goToPrevious} 
+          onPrevious={() => setCurrentStep(1)} 
         />
       )}
       

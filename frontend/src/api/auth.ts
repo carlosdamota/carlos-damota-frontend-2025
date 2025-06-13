@@ -39,24 +39,6 @@ export const sendEmailValidationCode = async (email: string) => {
   }
 };
 
-// // Enviar código de verificación (resend)
-// export async function sendEmailValidationCode(email: string): Promise<void> {
-//   const response = await fetch(`/api/send-email?email=${encodeURIComponent(email)}`, {
-//     method: 'GET',
-//   });
-
-//   let data: ApiError = {};
-//   try {
-//     data = await response.json();
-//   } catch (e) {
-//     throw new Error('Network error or invalid response');
-//   }
-
-//   if (!response.ok) {
-//     throw new Error(data.error || 'Something went wrong');
-//   }
-// }
-
 // Validar código de verificación
 export async function validateEmailCode(
   email: string,

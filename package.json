@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev:frontend": "pnpm --filter frontend dev",
-  "dev:backend": "pnpm --filter backend server",
+  "dev:backend": "pnpm --filter backend dev",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext .ts,.tsx",
     "preview": "vite preview"

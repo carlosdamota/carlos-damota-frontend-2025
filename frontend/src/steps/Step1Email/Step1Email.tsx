@@ -32,7 +32,7 @@ export const Step1Email: React.FC<Step1EmailProps> = ({ onNext }) => {
   };
 
   const handleSubmit = async () => {
-    // Validación final antes de enviar
+
     if (!isValidEmail(email)) {
       setError('Please enter a valid email address.');
       return;

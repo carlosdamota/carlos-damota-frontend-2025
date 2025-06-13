@@ -3,7 +3,7 @@ import styles from './styles.module.css';
 import { PlanCard } from '../../components/PlanCard/PlanCard';
 import { getProducts } from '../../api/plan';
  import { startTrial } from '../../api/auth';
-// import { LoadingSpinner } from '../../components/LoadingSpinner';
+import { LoadingSpinner } from '../../components/LoadingSpinner';
 
 interface Plan {
   type: 'monthly' | 'year';
@@ -65,7 +65,7 @@ export const Step3Plan: React.FC<Step3PlanProps> = ({ userId, onNext, onPrevious
   if (!plans) {
     return (
       <div className={styles.loadingContainer}>
-        {/* <LoadingSpinner /> */}
+        <LoadingSpinner />
         <p>Loading plans...</p>
       </div>
     );
