@@ -1,69 +1,63 @@
+/* Mobile-first base styles */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 500px;
+  max-width: 100vw;
   margin: 0 auto;
-  padding: 1.5rem;
-}
-
-.emailText {
-  font-size: 1.1rem;
-  color: #4a5568;
-  margin-bottom: 1.5rem;
-  text-align: center;
+  padding: 0.7rem;
 }
 
 .errorText {
   color: #e53e3e;
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
   text-align: center;
-  font-weight: 500;
 }
 
 .formContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.7rem;
   width: 100%;
 }
 
 .codeContainer {
   display: flex;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 0.3rem;
   width: 100%;
 }
 
 .codeInput {
-  width: 3.5rem;
-  height: 4.5rem;
+  width: 2.4rem;
+  height: 2.4rem;
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #2d3748;
   border: 2px solid #e2e8f0;
-  border-radius: 12px;
+  border-radius: 5px;
   background-color: #f8fafc;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   outline: none;
+  margin: 0 0.1rem;
 }
 
 .codeInput:focus {
   border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-  transform: translateY(-2px);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+  transform: translateY(-1px);
   background-color: #ffffff;
 }
 
 .codeInput.filled {
   border-color: #10b981;
   background: linear-gradient(to bottom, #f0fdf4, #ecfdf5);
-  box-shadow: 0 4px 6px rgba(16, 185, 129, 0.15);
+  box-shadow: 0 2px 3px rgba(16, 185, 129, 0.15);
 }
 
 .errorInput {
@@ -74,44 +68,43 @@
 
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
 }
 
 .timeContainer {
-  margin-top: -0.5rem;
+  margin-top: -0.3rem;
 }
 
 .timeText {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #718096;
   font-weight: 500;
 }
 
 .submitButton {
-  padding: 0.8rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 600;
+  padding:  0.5rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
   color: white;
   background: linear-gradient(to right, #3b82f6, #6366f1);
   border: none;
-  border-radius: 10px;
+  border-radius: 0.375rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
-  width: 100%;
-  max-width: 200px;
+  box-shadow: 0 2px 3px rgba(59, 130, 246, 0.2);
 }
 
 .submitButton:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(59, 130, 246, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 4px rgba(59, 130, 246, 0.3);
   background: linear-gradient(to right, #2563eb, #4f46e5);
 }
 
 .submitButton:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 1px 2px rgba(59, 130, 246, 0.2);
 }
 
 .submitButton:disabled {
@@ -124,12 +117,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
+  gap: 0.3rem;
+  margin-top: 0.3rem;
 }
 
 .resendContainer p {
-  font-size: 0.95rem;
+  font-size: 0.7rem;
   color: #4a5568;
 }
 
@@ -137,7 +130,7 @@
   background: none;
   border: none;
   color: #718096;
-  font-size: 1rem;
+  font-size: 0.7rem;
   font-weight: 600;
   cursor: pointer;
   transition: color 0.2s ease;
@@ -157,29 +150,55 @@
   opacity: 0.5;
 }
 
-/* Responsive */
-@media (max-width: 480px) {
+/* Responsive: upscale for larger screens */
+@media (min-width: 481px) {
   .container {
     padding: 1rem;
+    max-width: 500px;
   }
-  
   .codeInput {
     width: 2.8rem;
     height: 2.8rem;
     font-size: 1.8rem;
     border-radius: 10px;
+    margin: 0 0.2rem;
   }
-  
-  .codeContainer {
-    gap: 0.6rem;
+  .formContainer {
+    gap: 1.2rem;
   }
-  
   .submitButton {
     padding: 0.7rem 2rem;
     font-size: 1rem;
+    max-width: 200px;
+    border-radius: 10px;
   }
-  
-  .emailText {
-    font-size: 1rem;
+  .errorText, .timeText, .resendContainer p, .resendButton {
+    font-size: 0.95rem;
+  }
+  .resendContainer {
+    margin-top: 1.2rem;
+    gap: 0.5rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .container {
+    padding: 1.5rem;
+  }
+  .codeInput {
+    width: 3.5rem;
+    height: 4.5rem;
+    font-size: 2.2rem;
+    border-radius: 12px;
+    margin: 0 0.3rem;
+  }
+  .formContainer {
+    gap: 1.5rem;
+  }
+  .submitButton {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.1rem;
+    max-width: 200px;
+    border-radius: 12px;
   }
 }

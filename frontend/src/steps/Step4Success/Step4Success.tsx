@@ -1,47 +1,81 @@
-import React, { useEffect, useState } from 'react';
-import styles from './styles.module.css';
+import React, { useEffect, useState } from "react";
+import styles from "./styles.module.css";
 
-interface Step4SuccessProps {
-  onComplete: () => void;
-}
+type ConfettiPieceProps = {
+  delay: number;
+  duration: number;
+  startX: number;
+  startY: number;
+  color: string;
+  shape: string;
+  size: number;
+};
 
-const ConfettiPiece = ({ delay, duration, startX, startY, color, shape, size }) => {
+const ConfettiPiece: React.FC<ConfettiPieceProps> = ({
+  delay,
+  duration,
+  startX,
+  startY,
+  color,
+  shape,
+  size,
+}) => {
   return (
     <div
       className={`${styles.confettiPiece} ${styles[shape]}`}
-      style={{
-        left: `${startX}%`,
-        top: `${startY}%`,
-        backgroundColor: color,
-        animationDelay: `${delay}s`,
-        animationDuration: `${duration}s`,
-        width: `${size}px`,
-        height: `${size}px`,
-        '--particle-color': color,
-      }}
+      style={
+        {
+          left: `${startX}%`,
+          top: `${startY}%`,
+          backgroundColor: color,
+          animationDelay: `${delay}s`,
+          animationDuration: `${duration}s`,
+          width: `${size}px`,
+          height: `${size}px`,
+          "--particle-color": color,
+        } as React.CSSProperties
+      }
     />
   );
 };
 
-const FireworkBurst = ({ delay, angle, distance, color, shape, size }) => {
+type FireworkBurstProps = {
+  delay: number;
+  angle: number;
+  distance: number;
+  color: string;
+  shape: string;
+  size: number;
+};
+
+const FireworkBurst: React.FC<FireworkBurstProps> = ({
+  delay,
+  angle,
+  distance,
+  color,
+  shape,
+  size,
+}) => {
   return (
     <div
       className={`${styles.fireworkBurst} ${styles[shape]}`}
-      style={{
-        backgroundColor: color,
-        animationDelay: `${delay}s`,
-        transform: `rotate(${angle}deg)`,
-        '--burst-distance': `${distance}px`,
-        '--burst-angle': `${angle}deg`,
-        width: `${size}px`,
-        height: `${size}px`,
-        '--particle-color': color,
-      }}
+      style={
+        {
+          backgroundColor: color,
+          animationDelay: `${delay}s`,
+          transform: `rotate(${angle}deg)`,
+          "--burst-distance": `${distance}px`,
+          "--burst-angle": `${angle}deg`,
+          width: `${size}px`,
+          height: `${size}px`,
+          "--particle-color": color,
+        } as React.CSSProperties
+      }
     />
   );
 };
 
-export const Step4Success: React.FC<Step4SuccessProps> = ({ onComplete }) => {
+export const Step4Success: React.FC = () => {
   const [showConfetti, setShowConfetti] = useState(true);
   const [triggerFireworks, setTriggerFireworks] = useState(false);
 
@@ -61,25 +95,25 @@ export const Step4Success: React.FC<Step4SuccessProps> = ({ onComplete }) => {
   }, []);
 
   const fireworkColors = [
-    '#00D4FF', // Bright cyan/blue
-    '#FF6B35', // Bright orange
-    '#FF1B8D', // Hot pink/magenta
-    '#00FF88', // Bright green
-    '#FFD700', // Golden yellow
-    '#8A2BE2', // Blue violet
-    '#FF69B4', // Hot pink
-    '#00CED1', // Dark turquoise
-    '#FF4500', // Orange red
-    '#32CD32', // Lime green
-    '#FF1493', // Deep pink
-    '#00BFFF', // Deep sky blue
+    "#00D4FF", // Bright cyan/blue
+    "#FF6B35", // Bright orange
+    "#FF1B8D", // Hot pink/magenta
+    "#00FF88", // Bright green
+    "#FFD700", // Golden yellow
+    "#8A2BE2", // Blue violet
+    "#FF69B4", // Hot pink
+    "#00CED1", // Dark turquoise
+    "#FF4500", // Orange red
+    "#32CD32", // Lime green
+    "#FF1493", // Deep pink
+    "#00BFFF", // Deep sky blue
   ];
 
-  const particleShapes = ['circle', 'star', 'diamond', 'triangle', 'square'];
+  const particleShapes = ["circle", "star", "diamond", "triangle", "square"];
 
   return (
     <div className={styles.container}>
-      {/* Explosión de Confetti desde el centro */}
+      {/* Confetti explosion from the center */}
       {showConfetti && (
         <div className={styles.confettiContainer}>
           {Array.from({ length: 200 }).map((_, i) => {
@@ -88,7 +122,7 @@ export const Step4Success: React.FC<Step4SuccessProps> = ({ onComplete }) => {
             const distance = Math.random() * 50;
             const startX = 50 + Math.cos(angle) * distance;
             const startY = 50 + Math.sin(angle) * distance;
-            
+
             return (
               <ConfettiPiece
                 key={`confetti-${i}`}
@@ -138,7 +172,7 @@ export const Step4Success: React.FC<Step4SuccessProps> = ({ onComplete }) => {
                 angle={angle}
                 distance={distance}
                 color={color}
-                shape="circle"
+                shape='circle'
                 size={3 + Math.random() * 5}
               />
             );
@@ -149,25 +183,17 @@ export const Step4Success: React.FC<Step4SuccessProps> = ({ onComplete }) => {
       {/* Main Content */}
       <div className={styles.content}>
         <h1 className={styles.title}>
-          Congrats! You're now a{' '}
-          <span className={styles.subscriber}>subscriber!</span>
+          Congrats! You're now a <span className={styles.subscriber}>subscriber!</span>
         </h1>
-        
-        <p className={styles.subtitle}>
-          Explore your membership now.
-        </p>
+
+        <p className={styles.subtitle}>Explore your membership now.</p>
 
         {/* Central Circle - Matching background color */}
         <div className={styles.centralCircle}>
           <div className={styles.circleInner}></div>
         </div>
 
-        <button
-          onClick={onComplete}
-          className={styles.button}
-        >
-          Explore Membership
-        </button>
+        {/* Elimina el botón de continuar o acción final */}
       </div>
     </div>
   );

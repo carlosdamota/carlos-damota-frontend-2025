@@ -1,54 +1,59 @@
+.benefitsList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 2rem auto;
+  box-sizing: border-box;
 
-.benefitsList{
+  & li {
     display: flex;
-    flex-direction: column;
+
+    align-items: center;
+    gap: 0.2rem;
+    padding: 1rem 1.5rem;
     width: 100%;
-    width: 100vw;
-    margin-left: calc(-1.5rem); 
-    margin-right: calc(-1rem);
-    margin-bottom: 2rem;
-     
-    & li{
-        display: flex;
-        
-        align-items: center;
-        gap: 0.2rem;
-        padding: 1rem 1.5rem;
-        &:nth-child(1),  &:nth-child(3){
-           background: linear-gradient(
-  to right,
-  
-  #ffffff1c 30%,
-  #2D1A47 100%
-);
-    
-        }
-       
-        & span{
-            display: inline-block;
-            text-align: center;
-            min-width: 1.6rem;
-            min-height: 1.6rem;
-            width: 1.6rem;
-            height: 1.6rem;
-            background: linear-gradient(120deg, var(--color-accent) 30%, var(--color-surface) 100%);
-            border-radius: 50%;
-            margin-right: 0.5rem;
-            position: relative;
-            &::after{
-                position: absolute;
-                top: 40%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                content: '✓';
-                font-weight: bold;
-                font-size: 1.5rem;
-                width: 2rem;
-                height: 2rem;
-                text-align: center;
-            }
-            
-        }
-        
+    box-sizing: border-box;
+    &:nth-child(1),
+    &:nth-child(3) {
+      background: linear-gradient(
+        to right,
+
+        #ffffff1c 30%,
+        #2d1a47 100%
+      );
     }
+
+    & span {
+      display: inline-block;
+      text-align: center;
+      min-width: 1.6rem;
+      min-height: 1.6rem;
+      width: 1.6rem;
+      height: 1.6rem;
+      background: linear-gradient(120deg, var(--color-accent) 30%, var(--color-surface) 100%);
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      position: relative;
+      &::after {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: "✓";
+        font-weight: bold;
+        font-size: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .benefitsList {
+    max-width: 350px;
+  }
 }

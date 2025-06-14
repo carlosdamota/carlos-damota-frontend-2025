@@ -8,8 +8,9 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  
-  padding: 1rem;
+
+  padding: 1rem 0.5rem;
+  box-sizing: border-box;
 }
 
 .confettiContainer {
@@ -64,7 +65,18 @@
 }
 
 .star {
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
 }
 
 .diamond {
@@ -73,31 +85,42 @@
 }
 
 .content {
-  text-align: center;
-  z-index: 10;
-  max-width: 90%;
   width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex: 1 0 auto;
 }
 
 .title {
-  font-size: 1.75rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: white;
-  margin-bottom: 1rem;
-  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .subscriber {
-  color: #FFD700;
+  color: #ffd700;
   animation: glow 2s infinite alternate;
-  text-shadow: 0 0 10px #FFD700;
+  text-shadow: 0 0 10px #ffd700;
 }
 
 .subtitle {
-  font-size: 1.125rem;
-  color: #e5e7eb;
-  margin-bottom: 2rem;
-  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.footer {
+  margin-top: auto;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  width: 100%;
 }
 
 .centralCircle {
@@ -121,7 +144,7 @@
 }
 
 .button {
-  background: linear-gradient(45deg, #00FF88, #00D4FF);
+  background: linear-gradient(45deg, #00ff88, #00d4ff);
   color: white;
   font-weight: bold;
   padding: 0.875rem 2rem;
@@ -130,15 +153,19 @@
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 15px -3px rgba(0, 212, 255, 0.3), 0 4px 6px -2px rgba(0, 255, 136, 0.2);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 212, 255, 0.3),
+    0 4px 6px -2px rgba(0, 255, 136, 0.2);
   width: 100%;
   max-width: 300px;
 }
 
 .button:hover {
-  background: linear-gradient(45deg, #00D4FF, #FF6B35);
+  background: linear-gradient(45deg, #00d4ff, #ff6b35);
   transform: scale(1.05);
-  box-shadow: 0 20px 25px -5px rgba(0, 212, 255, 0.4), 0 10px 10px -5px rgba(255, 107, 53, 0.3);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 212, 255, 0.4),
+    0 10px 10px -5px rgba(255, 107, 53, 0.3);
 }
 
 .button:active {
@@ -178,15 +205,21 @@
 
 @keyframes glow {
   0% {
-    text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+    text-shadow:
+      0 0 10px #ffd700,
+      0 0 20px #ffd700;
   }
   100% {
-    text-shadow: 0 0 20px #FFD700, 0 0 30px #FF6B35, 0 0 40px #FF1B8D;
+    text-shadow:
+      0 0 20px #ffd700,
+      0 0 30px #ff6b35,
+      0 0 40px #ff1b8d;
   }
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.8;
   }
@@ -202,18 +235,18 @@
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .subtitle {
     font-size: 1.25rem;
     margin-bottom: 3rem;
   }
-  
+
   .centralCircle {
     height: 10rem;
     width: 10rem;
     margin-bottom: 3rem;
   }
-  
+
   .button {
     padding: 1rem 2.5rem;
     font-size: 1.125rem;
@@ -225,11 +258,11 @@
   .title {
     font-size: 3.5rem;
   }
-  
+
   .subtitle {
     font-size: 1.5rem;
   }
-  
+
   .content {
     max-width: 50rem;
   }
@@ -239,23 +272,23 @@
   .container {
     padding: 0.5rem;
   }
-  
+
   .title {
     font-size: 1.5rem;
     margin-bottom: 0.75rem;
   }
-  
+
   .subtitle {
     font-size: 1rem;
     margin-bottom: 1rem;
   }
-  
+
   .centralCircle {
     height: 4rem;
     width: 4rem;
     margin-bottom: 1rem;
   }
-  
+
   .button {
     padding: 0.75rem 1.5rem;
     font-size: 0.875rem;
@@ -267,18 +300,18 @@
     font-size: 3rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .subtitle {
     font-size: 1.25rem;
     margin-bottom: 2rem;
   }
-  
+
   .centralCircle {
     height: 8rem;
     width: 8rem;
     margin-bottom: 2rem;
   }
-  
+
   .button {
     padding: 1rem 2rem;
     font-size: 1rem;
@@ -289,11 +322,11 @@
   .title {
     font-size: 1.5rem;
   }
-  
+
   .subtitle {
     font-size: 1rem;
   }
-  
+
   .centralCircle {
     height: 6rem;
     width: 6rem;
@@ -306,12 +339,31 @@
   .subscriber {
     animation: none;
   }
-  
+
   .button:hover {
     transform: none;
   }
-  
+
   .circleInner {
     animation: none;
+  }
+}
+
+@media (min-width: 900px), (orientation: landscape) and (min-width: 600px) {
+  .container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2.5rem 4rem;
+  }
+  .content {
+    max-width: 500px;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .footer {
+    margin-top: auto;
+    margin-bottom: 0;
   }
 }
