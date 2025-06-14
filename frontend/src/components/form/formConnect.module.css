@@ -3,23 +3,24 @@
   flex-direction: column;
   gap: 1.25rem; /* Reduced base gap */
   width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
+  max-width: 100%;
   padding: 1rem;
-  box-sizing: border-box;
+
 }
 
 .emailContainer {
   display: flex;
   flex-direction: column;
+  width: 100% ;
   gap: 0.5rem;
 }
 
 .input {
   padding: 0.9rem;
   border: 2px solid #e2e8f0;
-  border-radius: 12px;
+  border-radius: 0.375rem;
   font-size: 0.95rem;
+  font-weight: bold;
   transition: all 0.3s ease;
   outline: none;
   width: 100%;
@@ -44,11 +45,12 @@
 
 .errorText {
   color: #e53e3e;
-  font-size: 0.8rem; /* Slightly smaller */
+  font-size: 0.8rem;
   padding-left: 0.5rem;
 }
 
 .checkboxContainer {
+  margin-top: 2rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -57,14 +59,32 @@
 .checkbox {
   min-width: 1.25rem;
   height: 1.25rem;
-  border: 2px solid #cbd5e0;
-  border-radius: 4px;
+  border: 2px solid #fff;
+  border-radius: 0.375rem;
+  background: transparent;
   cursor: pointer;
+  appearance: none;
+  outline: none;
+  display: inline-block;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.checkbox:checked::after {
+  content: '\2713';
+  color: #fff;
+  font-size: 1rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%);
+  font-weight: bold;
+  pointer-events: none;
 }
 
 .checkboxLabel {
   font-size: 0.85rem; /* Reduced base size */
-  color: #4a5568;
+  color: #fff;
   cursor: pointer;
   line-height: 1.4;
 }
@@ -76,7 +96,7 @@
   color: white;
   background: linear-gradient(to right, #3b82f6, #6366f1);
   border: none;
-  border-radius: 10px;
+  border-radius: 0.375rem;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
@@ -108,7 +128,7 @@
   width: 1rem;
   height: 1rem;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
+  border-radius: 0.375rem;
   border-top-color: white;
   animation: spin 1s linear infinite;
 }

@@ -1,14 +1,25 @@
+.section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 /* Mobile-first base styles */
 .section {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  padding: 0;
   align-items: center;
   justify-content: center;
-  gap: 1.2rem;
-  padding: 1rem 0.5rem;
-  min-height: 100vh;
-  box-sizing: border-box;
-  position: relative;
+}
+.leftCol,
+.rightCol {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
 }
 
 .buttons {
@@ -45,8 +56,6 @@
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
-  max-width: 100vw;
-  margin: 0 auto;
 }
 
 /* Footer oculto en mobile, visible solo en tablet/desktop */
@@ -72,11 +81,11 @@
 /* Footer fijo solo en mobile, oculto en tablet/desktop */
 .footerMobile {
   display: block;
-  margin-top: auto;
-  margin-bottom: 0.5rem;
+  margin: 1rem auto;
   text-align: center;
   font-size: 0.8rem;
   width: 100%;
+  padding: 0 1rem;
 }
 
 @media (min-width: 900px), (orientation: landscape) and (min-width: 600px) {
@@ -96,8 +105,69 @@
   }
   .leftCol,
   .rightCol {
+    width: 100%;
     max-width: 400px;
-    min-height: 70vh;
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 40vh;
     justify-content: center;
   }
+  .footer {
+    margin-top: auto;
+  }
+}
+
+/* Mobile: header encima de BenefitsList */
+@media (max-width: 899px) {
+  .leftCol {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header {
+    order: -1;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Desktop: header solo en la columna derecha */
+@media (min-width: 900px), (orientation: landscape) and (min-width: 600px) {
+  .leftCol .header {
+    display: none;
+  }
+  .rightCol .header {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.headerMobile {
+  display: block;
+}
+.headerDesktop {
+  display: none;
+}
+
+@media (min-width: 900px), (orientation: landscape) and (min-width: 600px) {
+  .headerMobile {
+    display: none;
+  }
+  .headerDesktop {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.footer a,
+.footerMobile a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer a:hover,
+.footerMobile a:hover {
+  color: var(--color-primary);
 }

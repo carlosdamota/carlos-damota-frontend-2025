@@ -41,8 +41,8 @@ export const Step2code: React.FC<Step2CodeProps> = ({ onNext, onPrevious, email 
 
       setTimeLeft(5 * 60);
       setCanResend(false);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to resend code");
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Failed to resend code");
     } finally {
       setIsSubmitting(false);
     }
@@ -65,26 +65,11 @@ export const Step2code: React.FC<Step2CodeProps> = ({ onNext, onPrevious, email 
   return (
     <>
       <section className={styles.section}>
+        <button className={styles.buttons} onClick={onPrevious}> <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg>Modify Email</button>
         <div className={styles.leftCol}>
-          <button
-            className={styles.buttons}
-            onClick={onPrevious}
-            disabled={isSubmitting}
-          >
-            <svg
-              stroke='currentColor'
-              fill='currentColor'
-              strokeWidth='0'
-              viewBox='0 0 448 512'
-              height='1.5em'
-              width='1.5em'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path d='M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z'></path>
-            </svg>
-            Modify Email
-          </button>
-          <header className={styles.header}>
+          <header className={`${styles.header} ${styles.headerMobile}`}>
+            {" "}
+            {/* Solo visible en mobile */}
             <h1>Get Verified</h1>
             <p>Enter the one-time code we sent to:</p>
             <p className={styles.emailText}>{email}</p>
@@ -98,6 +83,13 @@ export const Step2code: React.FC<Step2CodeProps> = ({ onNext, onPrevious, email 
           </footer>
         </div>
         <div className={styles.rightCol}>
+          <header className={`${styles.header} ${styles.headerDesktop}`}>
+            {" "}
+            {/* Solo visible en desktop/tablet */}
+            <h1>Get Verified</h1>
+            <p>Enter the one-time code we sent to:</p>
+            <p className={styles.emailText}>{email}</p>
+          </header>
           <CodeInput
             onSubmit={handleCodeSubmit}
             isSubmitting={isSubmitting}

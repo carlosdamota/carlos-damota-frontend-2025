@@ -96,14 +96,9 @@ export const Step3Plan: React.FC<Step3PlanProps> = ({ userId, onNext, onPrevious
           <h1 className={styles.title}>Choose your plan</h1>
         </header>
 
-        <div className={styles.saveBanner}>
-          <div className={styles.saveBadge}>Save 20%</div>
-          <div className={styles.bestValueBanner}>BEST VALUE</div>
-        </div>
+  
 
         <article className={styles.article}>
-          <div className={styles.saveInfo}>Save 20%</div>
-          <div className={styles.bestValueText}>BEST VALUE</div>
 
           <div className={styles.plansContainer}>
             <PlanCard
@@ -122,9 +117,7 @@ export const Step3Plan: React.FC<Step3PlanProps> = ({ userId, onNext, onPrevious
             />
           </div>
 
-          <div className={styles.trialInfo}>
-            <p>{plans[selectedPlan || "monthly"].trial_days}-day free trial</p>
-          </div>
+        <p className={styles.cancelText}>Cancel anytime.</p>
 
           {error && <p className={styles.errorText}>{error}</p>}
 
@@ -168,7 +161,6 @@ export const Step3Plan: React.FC<Step3PlanProps> = ({ userId, onNext, onPrevious
             Restore
           </a>
         </div>
-        <p className={styles.footerText}>Choose your membership now.</p>
       </footer>
     </div>
   );

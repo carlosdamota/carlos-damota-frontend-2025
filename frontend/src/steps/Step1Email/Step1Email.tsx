@@ -61,7 +61,9 @@ export const Step1Email: React.FC<Step1EmailProps> = ({ onNext }) => {
     <>
       <section className={styles.section}>
         <div className={styles.leftCol}>
-          <header className={styles.header}>
+          <header className={`${styles.header} ${styles.headerMobile}`}>
+            {" "}
+            {/* Solo visible en mobile */}
             <h1>Connect Your Account</h1>
             <p>...and unlock your benefits!</p>
           </header>
@@ -74,6 +76,12 @@ export const Step1Email: React.FC<Step1EmailProps> = ({ onNext }) => {
           </footer>
         </div>
         <div className={styles.rightCol}>
+          <header className={`${styles.header} ${styles.headerDesktop}`}>
+            {" "}
+            {/* Solo visible en desktop/tablet */}
+            <h1>Connect Your Account</h1>
+            <p>...and unlock your benefits!</p>
+          </header>
           <FormEmailConnect
             value={email}
             onChange={handleChange}
