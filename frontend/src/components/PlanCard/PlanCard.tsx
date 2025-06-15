@@ -34,25 +34,30 @@ export const PlanCard: React.FC<PlanCardProps> = ({
       {showSavings && <div className={styles.savingsTag}>{plan.savings_text}</div>}
       {/* Columna izquierda: radio y tipo de plan en row */}
       <div className={`${styles.cardLeft} ${isBestValue ? styles.bestValue : ""}`}>
-        <div className={styles.planType}>
+        <div >
           <div className={`${styles.radio} ${isSelected ? styles.selected : ""}`}>
             {isSelected && (
               <span
               
               />
+              
             )}
+            
           </div>
-            {isBestValue && (
+           
+          
+        </div>
+        <div className={styles.planType}>
+       {isBestValue && (
           <span>
             BEST VALUE
           </span>
         )}
-          <p className={styles.planType}>
+          <p >
             {plan.type === "year" ? "Annual" : "Monthly"}
           </p>
-          
+
         </div>
-      
       </div>
       {/* Columna derecha: precio, ciclo, franja negra */}
       <div className={styles.cardRight}>

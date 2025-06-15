@@ -95,49 +95,77 @@ export const Step3Plan: React.FC<Step3PlanProps> = ({ userId, onNext, onPrevious
           </button>
           <h1 className={styles.title}>Choose your plan</h1>
         </header>
-
-  
-
         <article className={styles.article}>
-
-          <div className={styles.plansContainer}>
-            <PlanCard
-              plan={plans.year}
-              isSelected={selectedPlan === "year"}
-              onSelect={() => setSelectedPlan("year")}
-              isBestValue={true}
-              disabled={isSubmitting}
-            />
-
-            <PlanCard
-              plan={plans.monthly}
-              isSelected={selectedPlan === "monthly"}
-              onSelect={() => setSelectedPlan("monthly")}
-              disabled={isSubmitting}
-            />
-          </div>
-
-        <p className={styles.cancelText}>Cancel anytime.</p>
-
-          {error && <p className={styles.errorText}>{error}</p>}
-
-          <button
-            className={styles.submitButton}
-            onClick={handleSubmit}
-            disabled={isSubmitting || !selectedPlan}
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit();
+            }}
           >
-            {isSubmitting ? (
-              <span className={styles.buttonContent}>
-                <span className={styles.spinner}></span>
-                Starting trial...
-              </span>
-            ) : (
-              "Start my free trial!"
-            )}
-          </button>
+            <div
+              className={styles.plansContainer}
+              role='radiogroup'
+              aria-label='Plans'
+            >
+              <label style={{ width: "100%" }}>
+                <input
+                  type='radio'
+                  name='plan'
+                  value='year'
+                  checked={selectedPlan === "year"}
+                  onChange={() => setSelectedPlan("year")}
+                  disabled={isSubmitting}
+                  style={{ display: "none" }}
+                  aria-checked={selectedPlan === "year"}
+                />
+                <PlanCard
+                  plan={plans.year}
+                  isSelected={selectedPlan === "year"}
+                  onSelect={() => setSelectedPlan("year")}
+                  isBestValue={true}
+                  disabled={isSubmitting}
+                />
+              </label>
+              <label style={{ width: "100%" }}>
+                <input
+                  type='radio'
+                  name='plan'
+                  value='monthly'
+                  checked={selectedPlan === "monthly"}
+                  onChange={() => setSelectedPlan("monthly")}
+                  disabled={isSubmitting}
+                  style={{ display: "none" }}
+                  aria-checked={selectedPlan === "monthly"}
+                />
+                <PlanCard
+                  plan={plans.monthly}
+                  isSelected={selectedPlan === "monthly"}
+                  onSelect={() => setSelectedPlan("monthly")}
+                  disabled={isSubmitting}
+                />
+              </label>
+            </div>
+            <p className={styles.cancelText}>Cancel anytime.</p>
+            {error && <p className={styles.errorText}>{error}</p>}
+
+            <button
+              className={styles.submitButton}
+              type='submit'
+              disabled={isSubmitting || !selectedPlan}
+            >
+              
+              {isSubmitting ? (
+                <span className={styles.buttonContent}>
+                  <span className={styles.spinner}></span>
+                  Starting trial...
+                </span>
+              ) : (
+                "Start my free trial!"
+              )}
+            </button>
+          </form>
         </article>
       </section>
-
       <footer className={styles.footer}>
         <div className={styles.footerLinks}>
           <a
