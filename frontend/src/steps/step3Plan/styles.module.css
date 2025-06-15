@@ -2,7 +2,6 @@
 
 .section {
   display: flex;
-  
   flex-direction: column;
   align-items: center;
   gap: 1rem;
@@ -68,6 +67,7 @@
   font-size: 0.7rem;
   font-weight: 500;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .plansContainer {
@@ -82,18 +82,23 @@
 
 /* Tablet & Desktop: cards side by side and centered */
 @media (min-width: 600px) {
+  .section {
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    padding: 0 1rem;
+  }
   .backButton {
     position: relative;
     top: -5rem;
-    left: -5rem; 
+    left: -15rem; 
   }
   .plansContainer {
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-self: center;
     gap: 2rem;
     min-width: 600px;
-    max-width: 900px;
   }
   .footer {
     margin-top: 3.5rem;
@@ -101,9 +106,16 @@
 }
 
 @media (min-width: 1024px) {
+  
   .plansContainer {
-    gap: 2.5rem;
-    max-width: 1000px;
+    gap: 3rem;
+    min-width: 1000px;
+    margin: 2rem auto;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 37%;
+    left: auto;
   }
 }
 

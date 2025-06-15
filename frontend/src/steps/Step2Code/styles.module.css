@@ -103,6 +103,15 @@
     gap: 2.5rem;
     padding: 2.5rem 4rem;
   }
+
+  .buttons{
+    font-size: 1rem;
+    position: relative;
+    top: -20rem;
+    left: 12rem;
+    margin: -5rem;    
+  }
+
   .leftCol,
   .rightCol {
     width: 100%;

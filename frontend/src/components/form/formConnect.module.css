@@ -24,6 +24,7 @@
   transition: all 0.3s ease;
   outline: none;
   width: 100%;
+  color: var(--color-text-primary);
 }
 
 .input:focus {
